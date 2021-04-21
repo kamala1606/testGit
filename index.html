@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Calculadora de IPV4</title>
+   <link rel="stylesheet" href="./css/normalize.css">
+   <link rel="stylesheet" href="./css/estilo.css">
+   <script src="./js/Red.js"></script>
+   <script src="./js/ExcepcionDesborde.js"></script>
+   <script src="./js/ExcepcionDireccionIP.js"></script>
+</head>
+
+<body>
+   <header class="encabezado">
+      <h1>Calculadora IPV4</h1>
+      <div>
+         <p class="descripcion-contenedor">Una calculadora de IP es una herramienta que se puede utilizar para el
+            cálculo de direcciones IPv4
+            en una red de computadores. Esta herramienta facilita la administración de redes, ya que permite
+            obtener información esencial en el proceso de asignación de direcciones IP a los hosts en una red
+            de computadores.</p>
+      </div>
+   </header>
+   <main>
+      <header class="ingreso-informacion">
+         <h2>Ingrese la información de la direccion</h2>
+         <form action="false" class="formulario" id="form-id">
+            <label>Ingrese la dirección IP:</label>
+            <input type="number" id="octeto-1" min="0" max="255" required placeholder="Octeto 1">
+            <span class="punto-diagonal">.</span>
+            <input type="number" id="octeto-2" min="0" max="255" required placeholder="Octeto 2">
+            <span class="punto-diagonal">.</span>
+            <input type="number" id="octeto-3" min="0" max="255" required placeholder="Octeto 3">
+            <span class="punto-diagonal">.</span>
+            <input type="number" id="octeto-4" min="0" max="255" required placeholder="Octeto 4">
+            <span class="punto-diagonal">/</span>
+            <input type="number" id="mascara-subred" min="0" max="32" required placeholder="Mascara">
+         </form>
+         <div class="operaciones">
+            <button class="boton-solucion" onclick="anotarResultados()">Solucion Tarea 1</button>
+            <button class="boton-solucion" onclick="anotarResultados2()">Solucion Tarea 2</button>
+            <button class="boton-solucion" onclick="alert('aun no implementa nada')">Solucion Tarea 3</button>
+            <button class="boton-solucion" onclick="generarAleatorio()">Generar Ejercicio aleatorio</button>
+         </div>
+      </header>
+      <article class="seccion-ejercicios">
+         <h2>Ejercicios</h2>
+         <section class="tarea">
+            <h3>Ejercicio 1</h3>
+            <p>Dada la dirección IP de una red y la máscara de subred, en formato simplificado (/x), por ejemplo:
+               172.18.53.96/27, calcular</p>
+            <div class="resultados">
+               <span class="presentacion-datos" id="mascara-subred-decimal">Máscara de subred en formato decimal:</span>
+               <span class="presentacion-datos" id="direccion-broadcast">Dirección de broadcast en la red: </span>
+               <span class="presentacion-datos" id="numero-bits-red">Número de bits para identificar la red: </span>
+               <span class="presentacion-datos" id="numero-bits-host">Número de bits para identificar los hosts: </span>
+               <span class="presentacion-datos" id="numero-direcciones-host">Número de direcciones disponibles para los hosts: </span>
+               <span class="presentacion-datos" id="rango-direccion-red-broadcast">Rango de direcciones indicando la dirección de la red, las direcciones que se pueden asignar a los hosts y la dirección de broadcast:
+               </span>
+               <table class="tabla-direcciones">
+                  <caption>Direcciones de la red</caption>
+                  <thead class="encabezado-tabla">
+                     <tr>
+                        <th class="celda-tabla">Id direccion</th>
+                        <th class="celda-tabla">Octeto 1</th>
+                        <th class="celda-tabla">Octeto 2</th>
+                        <th class="celda-tabla">Octeto 3</th>
+                        <th class="celda-tabla">Octeto 4</th>
+                     </tr>
+                  </thead>
+                  <tbody id="direcciones-tabla-1">
+                  </tbody>
+                  <tfoot>
+                     <tr>
+                        <td colspan="4" class="celda-tabla">Total de direcciones de Hosts</td>
+                        <td class="celda-tabla" id="total-direcciones-1">0</td>
+                     </tr>
+                  </tfoot>
+               </table>
+            </div>
+         </section>
+         <section class="tarea">
+            <h3>Ejercicio 2</h3>
+            <p>Dada la dirección IP de un host y la máscara de subred, en formato simplificado (/x), por ejemplo 192.168.1.100/24, calcular</p>
+            <div class="resultados">
+               <span class="presentacion-datos" id="direccion-red">La dirección de la red: </span>
+               <span class="presentacion-datos" id="direccion-broadcast-red">Dirección de broadcast en esa red: </span>
+               <span class="presentacion-datos" id="cantidad-host">La cantidad de host que estan o podrian estar en la red: </span>
+               <span class="presentacion-datos" id="rango-direcciones">Rango de direcciones indicando la direccion de la red, las direcciones de los hosts y la direccion de broadcast: </span>
+               <table class="tabla-direcciones">
+                  <caption>Direcciones de la red</caption>
+                  <thead class="encabezado-tabla">
+                     <tr>
+                        <th class="celda-tabla">Id direccion</th>
+                        <th class="celda-tabla">Octeto 1</th>
+                        <th class="celda-tabla">Octeto 2</th>
+                        <th class="celda-tabla">Octeto 3</th>
+                        <th class="celda-tabla">Octeto 4</th>
+                     </tr>
+                  </thead>
+                  <tbody id="direcciones-tabla-2">
+                  </tbody>
+                  <tfoot>
+                     <tr>
+                        <td colspan="4" class="celda-tabla">Total de direcciones de Hosts</td>
+                        <td class="celda-tabla" id="total-direcciones-2">0</td>
+                     </tr>
+                  </tfoot>
+               </table>
+            </div>
+         </section>
+         <section class="tarea">
+            <h3>Ejercicio 3.1</h3>
+            <p>Dada	 la	 dirección	 IP	 de	 una	 red	 y	 la	 máscara	 de	 subred,	 en	 formato	
+            simplificado	(/x)	y	la	cantidad	de	bits	para	identificar	subredes,	por	ejemplo,	
+            10.45.0.0/16	y	8	bits,	calcular</p>
+            <div class="resultados">
+               <label>Ingrese la cantidad de bits para identificar subredes:</label>
+               <input type="number" id="bits subnetId" min="0" max="32" required placeholder="Bits Subred">
+               <span class="presentacion-datos" id="direccion-ip-red">La dirección IP de la red principal:</span>
+               <span class="presentacion-datos" id="direccion-broadcast-3">La dirección de broadcast:</span>
+               <span class="presentacion-datos" id="cantidad-subredes">La cantidad de subredes que se pueden utilizar: </span>
+               <span class="presentacion-datos" id="cantidad-bits-hots-subred">La cantidad de host que se pueden identificar en cada subred:</span>
+               <span class="presentacion-datos" id="numero-bits-host">Número de bits para identificar los hosts: </span>
+               <hr>
+               <span class="presentacion-datos" id="tabla-subred">Para cada subred que se pueda utilizar, una tabla con la dirección IP, el rango de direcciones de la subred y la dirección de broadcast:</span>
+               <table class="tabla-direcciones">
+                  <caption>Subredes que se pueden utilizar</caption>
+                  <thead class="encabezado-tabla">
+                     <tr>
+                        <th class="celda-tabla">Subred</th>
+                        <th class="celda-tabla">Dirección IP</th>
+                        <th class="celda-tabla">Rango de direcciones</th>
+                        <th class="celda-tabla">Direccion de broadcast</th>
+                     </tr>
+                  </thead>
+                  <tbody id="direcciones-tabla-2">
+                  </tbody>
+                  <tfoot>
+                     <tr>
+                        <td colspan="3" class="celda-tabla">Total de Subredes</td>
+                        <td class="celda-tabla" id="total-direcciones-2">0</td>
+                     </tr>
+                  </tfoot>
+               </table>
+               <hr>
+               <span class="presentacion-datos" id="tabla-subred-usuario">Igual al anterior, para una subred solicitada por el usuario:</span>
+               <label>Subred:</label>
+               <input type="number" id="subred-usuario" min="0" max="32" required placeholder="Subred">
+               <table class="tabla-direcciones">
+                  <caption>Subred solicitada por el usuario</caption>
+                  <thead class="encabezado-tabla">
+                     <tr>
+                        <th class="celda-tabla">Subred</th>
+                        <th class="celda-tabla">Dirección IP</th>
+                        <th class="celda-tabla">Rango de direcciones</th>
+                        <th class="celda-tabla">Direccion de broadcast</th>
+                     </tr>
+                  </thead>
+                  <tbody id="direcciones-tabla-2">
+                  </tbody>
+               </table>
+            </div>
+         </section>
+         <section class="tarea">
+            <h3>Ejercicio 3.2</h3>
+            <div class="resultados">
+            <span class="presentacion-datos" id="direccion-subred-especifica">La dirección de una subred especifica, por ejemplo la dirección de la subred 23:</span>
+               <label>Subred:</label> 
+               <input type="number" id="subred-usuario" min="0" max="32" required placeholder="Subred">
+               <button class="boton-solucion" onclick="">Calcular</button>
+            <span class="presentacion-datos" id="direccion-broadcast-subred-especifica">La dirección de broadcast una subred especifica, por ejemplo la dirección de broadcast de la subred 4:</span>
+               <label>Subred:</label>
+               <input type="number" id="subred-usuario-1" min="0" max="32" required placeholder="Subred">
+               <button class="boton-solucion" onclick="">Calcular</button>
+            <span class="presentacion-datos" id="direccion-host-especifico-subred-especifica">La dirección de un host espefico en una subred especifica, por ejemplo la dirección del host 13 de la subred 15:</span>
+               <label>Host:</label>
+               <input type="number" id="host-usuario" min="0" max="32" required placeholder="Host">   
+               <label>Subred:</label>
+               <input type="number" id="subred-usuario-2" min="0" max="32" required placeholder="Subred">
+               <button class="boton-solucion" onclick="">Calcular</button>
+            <span class="presentacion-datos" id="rango-direcciones-asignables-subred-especifica">El rango completo de direcciones que se pueden asignar a los hosts de una subred especifica, por ejemplo el rango de direcciones asignables de la subred 21:</span>
+               <label>Subred:</label>
+               <input type="number" id="subred-usuario-3" min="0" max="32" required placeholder="Subred">
+               <button class="boton-solucion" onclick="">Calcular</button>
+            <span class="presentacion-datos" id="direccion-subred-direccion-ip">Determinar la subred a la que pertenece una dirección Ip especifica, por ejemplo la subred a la que pertenece la dirección IP 192.168.10.23:</span>
+               <label>Ingrese la dirección IP:</label>
+               <input type="number" id="subred-octeto-1" min="0" max="255" required placeholder="Octeto 1">
+               <span class="punto-diagonal">.</span>
+               <input type="number" id="subred-octeto-2" min="0" max="255" required placeholder="Octeto 2">
+               <span class="punto-diagonal">.</span>
+               <input type="number" id="subred-octeto-3" min="0" max="255" required placeholder="Octeto 3">
+               <span class="punto-diagonal">.</span>
+               <input type="number" id="subred-octeto-4" min="0" max="255" required placeholder="Octeto 4">
+               <button class="boton-solucion" onclick="">Calcular</button>
+            <span class="presentacion-datos" id="direcciones-misma-subred">Determinar si dos direcciones IP hacen parte de la misma subred:</span>
+               <label class="solicitud-datos-extra">Ingrese la dirección IP 1:<label>
+               <input type="number" id="direccion-1-octeto-1" min="0" max="255" required placeholder="Octeto 1">
+               <span class="punto-diagonal">.</span>
+               <input type="number" id="direccion-1-octeto-2" min="0" max="255" required placeholder="Octeto 2">
+               <span class="punto-diagonal">.</span>
+               <input type="number" id="direccion-1-octeto-3" min="0" max="255" required placeholder="Octeto 3">
+               <span class="punto-diagonal">.</span>
+               <input type="number" id="direccion-1-octeto-4" min="0" max="255" required placeholder="Octeto 4">
+               <label class="solicitud-datos-extra">Ingrese la dirección IP 2:<label>
+               <input type="number" id="direccion-2-octeto-1" min="0" max="255" required placeholder="Octeto 1">
+               <span class="punto-diagonal">.</span>
+               <input type="number" id="direccion-2-octeto-2" min="0" max="255" required placeholder="Octeto 2">
+               <span class="punto-diagonal">.</span>
+               <input type="number" id="direccion-2-octeto-3" min="0" max="255" required placeholder="Octeto 3">
+               <span class="punto-diagonal">.</span>
+               <input type="number" id="direccion-2-octeto-4" min="0" max="255" required placeholder="Octeto 4">
+               <button class="boton-solucion" onclick="">Calcular</button>
+            <span class="presentacion-datos" id="n-direcciones-subred">Dar n direcciones IP de una subred especifica, por ejemplo dar 15 direcciones IP de la subred 9:</span>
+               <label>Cantidad direcciones IP:</label>
+               <input type="number" id="cantidad-direcciones-ip" min="1"  required placeholder="Cantidad">   
+               <label> - </label>
+               <label>Subred:</label>
+               <input type="number" id="subred-usuario-5" min="0" max="32" required placeholder="Subred">
+               <button class="boton-solucion" onclick="">Calcular</button>
+            </div>
+         </section>
+      </section>
+      </article>
+   </main>
+
+   <script src="./js/app.js"></script>
+</body>
+
+</html>

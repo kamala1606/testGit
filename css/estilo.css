@@ -1,0 +1,163 @@
+:root
+{
+   font-size: 1rem;
+   --color-fondo-principal: rgb(169, 230, 250);
+   --color-borde: rgb(28, 142, 248);
+   --color-sombra: rgb(134, 207, 255);
+   --color-borde-tabla: rgb(22, 21, 21);
+}
+
+*
+{
+   font-family: sans-serif;
+}
+body {
+   color: #000;
+   background-color: var(--color-fondo-principal);
+}
+
+h1, h2, h3, h4, h5, h6
+{
+   text-align: center;
+   margin: 0.2em 0.5em;
+}
+
+caption
+{
+   font-size: 2.5rem;
+   font-weight: 700;
+}
+
+.punto-diagonal
+{
+   font-weight: bolder;
+   font-size: 1.2rem;
+}
+
+input[type="number"]
+{
+   border: none;
+   border-bottom: 3px solid black;
+   min-width: 100px;
+   outline: none;
+   text-align: center;
+}
+
+input[type="number"]:focus
+{
+   border-bottom-color: blue;
+}
+
+.encabezado, .ingreso-informacion, .seccion-ejercicios, .tarea
+{
+   display: flex;
+   flex-direction: column;
+   font-family: 'Times New Roman', Times, serif;
+   background-color: #fff;
+}
+
+.encabezado, .ingreso-informacion, .seccion-ejercicios
+{
+   border-radius: 0.8em;
+   border: 2px solid grey;
+   width: 90vw;
+   margin: 0.5em auto;
+   padding: 0 0.6em;
+}
+
+.seccion-ejercicios
+{
+   padding: 0.5em 1em;
+}
+
+.operaciones
+{
+   margin: 0.8em 0;
+}
+
+.tarea
+{
+   align-items: center;
+   padding:0.9em 0.5em;
+   margin: 0.5em 0;
+   border: 2px solid var(--color-borde);
+   border-radius: 10px;
+}
+
+.boton-solucion
+{
+   margin: 0 0.5em;
+   border: none;
+   background-color: var(--color-sombra);
+   padding: 0.5em;
+   border-radius: 0.6em;
+   transition-duration: 0.1s;
+   outline: none;
+}
+
+.boton-solucion:hover
+{
+   box-shadow: 0 0 3px var(--color-sombra);
+}
+
+.encabezado
+{
+   align-items: stretch;
+}
+
+.descripcion-contenedor
+{
+   margin: 0 0;
+   margin-bottom: 0.5em;
+}
+
+.ingreso-informacion
+{
+   align-items: center;
+}
+
+.formulario
+{
+   display: inline;
+}
+
+.presentacion-datos
+{
+   display: block;
+   font-size: 1.2rem;
+   margin-top: 0.5em;
+}
+
+.solicitud-datos-extra
+{
+   display: block;
+   font-size: 1rem;
+   margin-top: 2%;
+}
+
+.tabla-direcciones
+{
+   margin: 1.2em auto;
+   border: 3px solid var(--color-borde-tabla);
+   font-size: 1.2rem;
+}
+
+.celda-tabla
+{
+   border: 2px solid black;
+   min-width: 150px;
+   text-align: center;
+}
+
+.text-align-left
+{
+   text-align: left;
+}
+
+.resultados
+{
+   width: 100%;
+   max-height: 600px;
+   overflow: auto;
+}
+

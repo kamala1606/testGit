@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head >
+  <meta charset="UTF-8">
+  <title>Calculadora IPV4</title>
+  <link rel="stylesheet" href="./css/main.css">
+  <script src="./js/Red.js"></script>
+</head>    
+<body class="body">
+    <div class="sección-titulo">
+        <h1>Calculadora IPV4</h1>
+        <hr>
+        <label>Una	calculadora	de	IP	es	una	herramienta	que	se	puede	utilizar	para	el	cálculo	de	direcciones	IPv4
+          en	una	red	de	computadores.	Esta	herramienta	facilita	la	administración	de	redes,	ya	que	permite	
+          obtener	información	esencial	en	el	proceso	de	asignación	de	direcciones	IP	a	los	hosts	en	una	red	
+          de	computadores.</label>
+        <hr>
+      </div>
+    <div class="sección-descripcion">
+    <ul>
+      <h2> Dada	 la	 dirección	 IP	 de	 una	 red	 y	 la	 máscara	 de	 subred,	 en	 formato	
+        simplificado	(/x),	por	ejemplo:	172.18.53.96/27,	calcular </h2>
+      <label> Ingrese la dirección IP: </label>
+      <input type='text' class='text' id='q1'> .
+      <input type='text' class='text' id='q2'> .
+      <input type='text' class='text' id='q3'> .
+      <input type='text' class='text' id='q4'> /
+      <input type='text' class='text' id='cidr'>
+      <button onclick='calculate();'>Calcular</button>
+      <hr>
+      <label>Dirección IP:</label>
+      <span class=value id=resIP></span>
+      <hr>
+        <div class='result'>
+        <span class=label>Máscara	de	subred	en	formato	decimal:</span>
+        <span class=value id=resMask></span>
+        </div>
+        <div class='result'>
+        <span class=label>Dirección	de	broadcast	en	esa	red:</span>
+        <span class=value id=resBC></span>
+        </div>
+        <div class='result'>
+        <span class=label>#	de	bits	utilizados	para	identificar	la	red:</span>
+        <span class=value id=resBistRed></span>
+        </div>
+        <div class='result'>
+        <span class=label>#	de	bits	utilizados	para	identificar	los	hosts:</span>
+        <span class=value id=resBitsHost></span>
+        </div>
+        <div class='result'>
+        <span class=label>#	de	direcciones	que	se	pueden	asignar	a	los	hosts	en	la	red:</span>
+        <span class=value id=resDirecciones></span>
+        </div>
+        <div class='result'>
+        <span class=label>Rango	de	direcciones	indicando	la	dirección	de	la	red,	las	direcciones	que	se	pueden	asignar	
+          a	los	hosts	y	la	dirección	de	broadcast.</span>
+        <span class=value id=resRango></span>
+        </div>
+        <div class='result'>
+        <span class=label>El	listado	de	las	direcciones	que	se	pueden	asignar	a	los	hosts:</span>
+        <span class=value id=resListado></span>
+        </div>   
+        <div class='result'>
+          <button>Generar Aleatorio</button>
+        </div>
+    </ul>
+    </div >
+
+    <div class="sección2">
+      <ul>
+        <h2> Dada	 la	 dirección	 IP	 de	 un	 host	 y	 la	 máscara	 de	 subred,	 en	 formato	
+          simplificado	(/x),	por	ejemplo	192.168.1.100/24,	calcular </h2>
+          <label> Ingrese la dirección IP: </label>
+          <input type='text' class='text' id='q1'> .
+          <input type='text' class='text' id='q2'> .
+          <input type='text' class='text' id='q3'> .
+          <input type='text' class='text' id='q4'> /
+          <input type='text' class='text' id='cidr'>
+          <button onclick='calculate();'>Calcular</button>
+          <hr>
+        <h3>Dirección IP:</h3>
+        <span class=value id=resIP2></span>
+        <hr>
+          <div class='result'>
+          <span class=label>La	dirección	de	la	red:</span>
+          <span class=value id=resDireccionRed></span>
+          </div>
+          <div class='result'>
+          <span class=label>Dirección	de	broadcast	en	esa	red:</span>
+          <span class=value id=resBroadcast></span>
+          </div>
+          <div class='result'>
+          <span class=label>La	cantidad	de	hosts	que	están	o	podrían	estar	en	la	red:</span>
+          <span class=value id=resCantidadHost></span>
+          </div>
+          <div class='result'>
+          <span class=label>Rango	de	direcciones	indicando	la	dirección	de	la	red,	las	direcciones	que	se	pueden	asignar	
+            a	los	hosts	y	la	dirección	de	broadcast.</span>
+          <span class=value id=resRango2></span>
+          </div>
+          <div class='result'>
+          <span class=label>El	listado	de	las	direcciones	que	se	pueden	asignar	a	los	hosts:</span>
+          <span class=value id=resListado2></span>
+          </div>   
+          <div class='result'>
+            <button>Generar Aleatorio</button>
+          </div>
+      </ul>
+      </div >
+      <div class="sección3">
+        <ul>
+          <h2> Dada	 la	 dirección	 IP	 de	 una	 red	 y	 la	 máscara	 de	 subred,	 en	 formato	
+            simplificado	(/x)	y	la	cantidad	de	bits	para	identificar	subredes,	por	ejemplo,	
+            10.45.0.0/16	y	8	bits,	calcular</h2>
+            <label> Ingrese la dirección IP: </label>
+            <input type='text' class='text' id='q1'> .
+            <input type='text' class='text' id='q2'> .
+            <input type='text' class='text' id='q3'> .
+            <input type='text' class='text' id='q4'> /
+            <input type='text' class='text' id='cidr'>
+            <button onclick='calculate();'>Calcular</button>
+            <hr>
+            <h3>Dirección IP:</h3>
+            <span class=value id=resIP3></span>
+            <hr>
+            <div class='result'>
+            <span class=label>La	dirección	IP	de	la	red	principal	y	su	correspondiente	dirección	de	broadcast:</span>
+            <span class=value id=resDireccionRedBC></span>
+            </div>
+            <div class='result'>
+            <span class=label>La	cantidad	de	subredes	que	se	pueden	utilizar:</span>
+            <span class=value id=resCantidadSubRedes></span>
+            </div>
+            <div class='result'>
+            <span class=label>La	cantidad	de	hosts	que	se	pueden	identificar	en	cada	subred:</span>
+            <span class=value id=resCantidadHostPorSubred></span>
+            </div>
+            <div class='result'>
+            <span class=label>Para	cada	subred	que	se	pueda	utilizar,	una	tabla	con	la	dirección	IP, el	rango	de	direcciones	
+              de	la subred y	la	dirección	de	broadcast	de	cada	subred.:</span>
+            <span class=value id=resTabla></span>
+            </div>
+            <div class='result'>
+            <span class=label>Igual	al	anterior,	pero	para	una	subred	solicitada	por	el	usuario:</span>
+            <span class=value id=resTablaUsuario></span>
+            </div>
+            <div class='result2'>
+            <span class=label>La	dirección	de	una	subred	específica.	Por	ejemplo,	la	dirección	de	la	subred	23</span>
+            SubRed: <input type='text' class='text' id='subRed'>
+            <button onclick='calculateSubred();'>Calcular</button>
+            <span class=value id=resDireccionSubRed></span>
+            </div>
+            <div class='result2'>
+            <span class=label>La	dirección	de	broadcast	de	una	subred	específica.	Por	ejemplo,	la	dirección	de	broadcast	
+              de	la	subred	4:</span>
+            SubRed: <input type='text' class='text' id='subRed2'>
+            <button onclick='calculateBCSubred();'>Calcular</button>
+            <span class=value id=resDireccionBroadcastSubred></span>
+            </div>   
+            <div class='result2'>
+              <span class=label>La	dirección	de	un	host	específico	en	una	subred	específica.	Por	ejemplo,	la	dirección	del	
+                host	13	de	la	subred	5:</span>
+                Host: <input type='text' class='text' id='host'> -  
+                SubRed: <input type='text' class='text' id='subRed3'>
+                <button onclick='calculateHostEnSubred();'>Calcular</button>
+              <span class=value id=resDireccionHostEnSubred></span>
+            </div>   
+            <div class='result2'>
+              <span class=label>El	 rango	 completo	 de	 direcciones	 que	 se	 pueden	 asignar	 a	 los	 hosts	 de	 una	 subred	
+                específica.	Por	ejemplo,	el	rango	de	direcciones	asignables	de	la	subred	21:</span>
+                SubRed: <input type='text' class='text' id='subRed4'>
+                <button onclick='calculateRangoSubred();'>Calcular</button>
+              <span class=value id=resRangoSubred></span>
+            </div>   
+            <div class='result2'>
+              <span class=label>Determinar	la	subred	a	la	que	pertenece	una	dirección	IP	específica.	Por	ejemplo,	la	subred	
+                a	la	que	pertenece	la	dirección	IP	192.168.10.23:</span>
+                Dirección IP: <input type='text' class='text' id='IP'>.
+                <input type='text' class='text' id='IP.1'> .
+                <input type='text' class='text' id='IP.2'> .
+                <input type='text' class='text' id='IP.3'>
+                <button onclick='determinarSubred();'>Calcular</button>
+              <span class=value id=resSubredIP></span>
+            </div>   
+            <div class='result2'>
+              <span class=label>Determinar	si	dos	direcciones	IP	hacen	parte	de	la	misma	subred:</span>
+              Dirección IP1: <input type='text' class='text' id='IP1.1'> .
+              <input type='text' class='text' id='IP1.2'> .
+              <input type='text' class='text' id='IP1.3'> .
+              <input type='text' class='text' id='IP1.4'>
+              Dirección IP2: <input type='text' class='text' id='IP2.1'> .
+              <input type='text' class='text' id='IP2.2'> .
+              <input type='text' class='text' id='IP2.3'> .
+              <input type='text' class='text' id='IP2.4'>
+              <button onclick='validarDireccionesIP();'>Calcular</button>
+              <span class=value id=resDireccionHostEnSubred></span>
+            </div>   
+            <div class='result2'>
+              <span class=label>Dar	n	direcciones	IP	de una	subred	dada.	Por	ejemplo,	dar	15	direcciones	IP	de	la	subred	
+                19:</span>
+                Cantidad Direcciones IP: <input type='text' class='text' id='cantidadIP'> - 
+                SubRed: <input type='text' class='text' id='subRed55'>
+                <button onclick='calculateDireccionesIPSubred();'>Calcular</button>
+              <span class=value id=resDireccionesIPSubred></span>
+            </div>   
+            <div class='result'>
+              <button>Generar Aleatorio</button>
+            </div>
+        </ul>
+        </div >
+    <script src="./js/app.js"></script>
+    <noscript>You need to enable JavaScript to view the full site.</noscript>
+</body>
+</html>
